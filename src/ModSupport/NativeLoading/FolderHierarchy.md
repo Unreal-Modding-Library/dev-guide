@@ -17,21 +17,6 @@ Unless you have changed it, your `Saves/` folder will be in `%appdata%/Local/<Ga
 
 In this example I have chosen to use a .uplugin file to store the mod information. You may prefer this, as the format of the `.uplugin` is JSON which means that a template can be provided for modders to use. Importantly, it almost eliminates the risk of mistakes in the file since it is obvious where information goes. I reiterate that it is indefinitely vital to remove potential points of failure for the lowest bar possible. An example of this could be:
 
-```
-{
-    "ModName": "Time Control",
-    "Description": "Allows the user to control the global time dilation.",
-    "Category": "Gameplay",
-    "CreatedBy": "Buckminsterfullerene",
-    "ThumbnailImage": "https://3rdartymodmanger.com/GameName/mods/Time%20Control/Thumbnail.png",
-    "GameVersion": "1.37",
-    "ModVersion": "1.0",
-    "Dependencies": 
-    [
-        {
-            "ModName": "ModLib",
-            "ModURL": "https://3rdartymodmanger.com/GameName/mods/ModLib",
-        }
-    ]
-}
-```
+![Mod descriptor file](../../Images/ModDescriptorFile.png)
+
+*Example mod descriptor file*
