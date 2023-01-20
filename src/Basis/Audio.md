@@ -1,5 +1,5 @@
 # Audio
-The quality of audio modding is heavily influenced by the sound system that your game uses. The best system is the default UE sound system that was introduced in UDK (UE3). There are also the FMod and Wwise middleware that many games use, but frankly, they are crap. They are limited and a pain to mod since they are closed source and use [propriety formats](https://github.com/Unreal-Modding-Library/Tools#audio). I get them being used by non-UE games or games developed before the UE sound system existed, but any new games using them baffles me. 
+The quality of audio modding is heavily influenced by the sound system that your game uses. The best system is the default UE sound system that was introduced in UDK (UE3). There are also the FMod and Wwise middleware that many games use, but frankly, they are rubbish. They are limited and a pain to mod since they are closed source and use [propriety formats](https://github.com/Unreal-Modding-Library/Tools#audio). I get them being used by non-UE games or games developed before the UE sound system existed, but any new games using them baffles me. 
 
 The extent of modding games using WWise or FMod is just by directly replacing the audio files. There is nothing more modders can do, without using blueprints.
 

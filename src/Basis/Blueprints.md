@@ -1,5 +1,5 @@
 # Blueprints
-Blueprint modding is the most accessible form of “advanced” modding, in that modders can create new assets and write code to produce mods that do more complex things. It also happens to be the easiest technique to directly support, which is discussed in the “Adding mod support to your game” section. 
+Blueprint modding is the most accessible form of "advanced" modding, in that modders can create new assets and write code to produce mods that do more complex things. It also happens to be the easiest technique to directly support, which is discussed in the "Adding mod support to your game" section. 
 
 Blueprint mods can do everything normal UE blueprints can do, which means that at an absolute minimum, there are a lot of possibilities. There is an exception to this however – any modules of the engine that are stripped from shipping builds of games will not work when accessed by blueprint. For example, the cheat manager object is stripped by default (for obvious reasons), so any calls to the cheat manager will not work.
 
@@ -8,9 +8,9 @@ Blueprints can get references to any asset in the game as well as any C++ expose
 - `/Game/` is an asset inside of the Content folder, e.g., `/Game/Blueprints/BPCharacter`
 - `/Script/` is a C++ class, e.g., `/Script/ACustomCharacter`
 
-Which means that references are persistent when cooking and packaging, therefore allowing “fake” references to be made, and then when the blueprint is loaded into the game, it will reference the real, unchanged asset. 
+Which means that references are persistent when cooking and packaging, therefore allowing "fake" references to be made, and then when the blueprint is loaded into the game, it will reference the real, unchanged asset. 
 
-To make the fake reference, you guessed it, modders can make the asset in the same name, location, and type as in the game and reference it in the blueprint. This is coined as “dummying.” It will work, as long as they do not pack the dummied asset into the mod, otherwise it will replace the original and cause issues. 
+To make the fake reference, you guessed it, modders can make the asset in the same name, location, and type as in the game and reference it in the blueprint. This is coined as "dummying." It will work, as long as they do not pack the dummied asset into the mod, otherwise it will replace the original and cause issues. 
 
 With this concept now in mind, faking references can go much further. Modders can dummy properties, functions, delegates, components, and events inside of the dummied asset, which they can then access from their mod blueprints. The following two images show a widget that has had a few properties and events reconstructed so that they can be referenced in a mod blueprint.
 
@@ -57,11 +57,11 @@ You have almost certainly heard of a mod loader. There is usually one for any co
 
 In Unreal Engine, the methods used can vary, depending on each game, their engine versions, engine modifications, etc. Here is a high-level overview of the most common methods, in order of difficulty:
 - Completely replace an asset that is always loaded and does not do anything important, e.g., a credits widget in the escape menu
-- Using a “game generic” [mod loader](https://github.com/RussellJerome/UnrealModLoader) that hooks into a common UE function using DLL injection and loads blueprint actors
-- Edit an asset (using an asset editor) that is always loaded, e.g., a HUD widget or a map, to add “code” that loads a blueprint actor that has all the mod loading code inside of it
+- Using a "game generic" [mod loader](https://github.com/RussellJerome/UnrealModLoader) that hooks into a common UE function using DLL injection and loads blueprint actors
+- Edit an asset (using an asset editor) that is always loaded, e.g., a HUD widget or a map, to add "code" that loads a blueprint actor that has all the mod loading code inside of it
 
 Once any blueprint or widget has been loaded with custom code in, the mod loader can then go about loading any other mods that maybe are within a certain folder in the asset content, using normal UE [asset registry](https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/ProgrammingWithCPP/Assets/Registry/) functions. 
 
 For example, a mod loader may require blueprint mods to be inside `Content/ModLoader/YourModName/InitBlueprint`, inside of their UE projects before they cook & create their pak file. That way, in the mod loader's code, they can just check every subfolder in `/Game/ModLoader/` for the `InitBlueprint` actor and spawn that.
 
-As you can tell, the need for natively spawning blueprint mods is top priority. Luckily, it is quite easy, but that is explained in the “Mod support” section.
+As you can tell, the need for natively spawning blueprint mods is top priority. Luckily, it is quite easy, but that is explained in the "Mod support" section.
