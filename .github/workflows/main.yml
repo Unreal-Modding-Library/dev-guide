@@ -10,6 +10,8 @@ jobs:
   build:
     name: Build, Test and Deploy
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v2
       - uses: actions-rs/toolchain@v1
