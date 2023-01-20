@@ -23,7 +23,7 @@ jobs:
         git config user.name "Deploy from CI"
         git config user.email ""
         cd gh-pages
-        # Delete the ref to avoid keeping history.
+        # Delete the ref to avoid keeping history
         git update-ref -d refs/heads/gh-pages
         rm -rf *
         mv ../book/* .
