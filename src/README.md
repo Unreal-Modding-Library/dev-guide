@@ -1,6 +1,4 @@
-```
-WARNING: The content of this site is still in FIRST DRAFT! 
-```
+> WARNING: The content of this site is still in FIRST DRAFT! 
 
 # What is this?
 When I first started talking to game developers about modding in Unreal Engine, I realised that there are both misconceptions and a complete lack of knowledge of the field. My goal is to inform both developers and modders of all the possibilities that modding can offer. Only known and used methods will be covered, which means that I will not explore potential options that don’t exist yet, such as ones covered in [this post](https://forums.unrealengine.com/t/modding-data-driven-thoughts-how-to-best-accomplish/65495).
