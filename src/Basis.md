@@ -1,0 +1,2 @@
+# The Basis of all Modding
+Now that the various characteristics of mods have been lightly discussed, I can go into detail about the modding methods that exist, their pros and cons, and how they should be supported. It is vital for the developers to know what the modding pipelines are to best support them.

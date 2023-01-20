@@ -1,0 +1,6 @@
+# Do it yourself
+Since the engine core API exposes many utilities related with pak mounting and such, it isn’t really all that difficult to implement your own solution. The Pak loader plugin primarily builds upon the FPlatformFile & FileWalk APIs which is a good point to start at.
+
+If you need something really bespoke, maybe more flexible than the other two methods, this is probably the path you should take. I’ll talk about it in more depth later, but the game Deep Rock Galactic had a requirement for being able to “hot reload” mods during runtime, which is not possible without writing engine modifications yourself. 
+
+Be aware though that any DIY solution is prone to more subtle issues that people may not notice for a long time but may cause a lot of issues. For example, in Deep Rock Galactic, there was a bug in the hot reload system where mods were not always loaded in a consistent order and went undetected for a long time. When it eventually surfaced, modders realised that it was the root cause of other issues they were having that they couldn’t explain. 

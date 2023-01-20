@@ -1,0 +1,2 @@
+# Case Studies
+Since I have modded and made tools for many games, I think it is important to share what methods specific games have used, what their ups and downs are, and what I have learnt from working with them. Be aware that this section is a bit of a knowledge dump from me so I’m not going to be upset if you decide to skip it. 
