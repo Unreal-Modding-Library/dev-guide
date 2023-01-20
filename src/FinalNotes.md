@@ -5,4 +5,4 @@
 
 *Probably something about being open to change and feedback from modders*
 
-If you learnt something from this document, please support me by sharing this with other developers. My only goal is to spread awareness of modding possibilities in the Unreal Engine ecosystem.  
+If you learnt something from this document, please support me by sharing this with other developers. My only goal is to spread awareness of modding possibilities in the Unreal Engine ecosystem. 
