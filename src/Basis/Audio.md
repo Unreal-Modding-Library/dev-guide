@@ -7,11 +7,16 @@ Audio modding for games using the UE sound system has a slightly higher bar than
 
 There are 3 methods of audio modding for games using the UE sound system:
 - Directly replacing sound waves. Modders can import their .wav/.ogg audio file into the same name and location as the original they wish to replace
+
 - Replacing sound cues. If a modder recreates a sound cue in the same name and location as the original, they can:
     - Make their own sound cue graph
+
     - Use as many custom sound waves as they want
+
     - Use custom attenuation, concurrency or submix settings
+
     - Recreate other referenced assets in the original, such as sound class, and reference them in their new cue. This is a vital component that modders should follow if they want their mods to be able to be controlled by the game’s audio sliders, ducking and other systems controlled by those assets
+    
 - Replacing other audio asset types, like making custom sound class or submix hierarchies, replacing attenuations, sound curves, etc.
 
 If you want to get an idea of any of these methods, you can have a skim through the [audio modding guide](https://mod.io/g/drg/r/drg-mods-a-comprehensive-guide-to-audio-modding) for the game Deep Rock Galactic. The examples use that game, but every technique is transferrable to any other using the UE sound system.

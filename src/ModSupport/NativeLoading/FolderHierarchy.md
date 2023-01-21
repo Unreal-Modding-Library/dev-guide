@@ -9,7 +9,7 @@ Finally, you may want a dedicated location for mod saves to be stored. Since mod
 
 To put all this together, let’s run through an example. Say there are two mods installed. The mod hierarchy could look like this:
 
-![Folder Hierarchy](../../Images/FolderHierarchy.png)
+[![Folder Hierarchy](../../Images/FolderHierarchy.png)](https://github.com/Unreal-Modding-Library/dev-guide/blob/17d62210695e540807bac0633460f636067a9a32/src/Images/FolderHierarchy.png)
 
 *Example mod folder hierarchy*
 
@@ -17,6 +17,21 @@ Unless you have changed it, your `Saves/` folder will be in `%appdata%/Local/<Ga
 
 In this example I have chosen to use a .uplugin file to store the mod information. You may prefer this, as the format of the `.uplugin` is JSON which means that a template can be provided for modders to use. Importantly, it almost eliminates the risk of mistakes in the file since it is obvious where information goes. I reiterate that it is indefinitely vital to remove potential points of failure for the lowest bar possible. An example of this could be:
 
-![Mod descriptor file](../../Images/ModDescriptorFile.png)
-
-*Example mod descriptor file*
+```
+{
+    "ModName": "Time Control",
+    "Description": "Allows the user to control the global time dilation.",
+    "Category": "Gameplay",
+    "CreatedBy": "Buckminsterfullerene",
+    "ThumbnailImage": "https://3rdartymodmanger.com/GameName/mods/Time%20Control/Thumbnail.png",
+    "GameVersion": "1.37",
+    "ModVersion": "1.0",
+    "Dependencies": 
+    [
+        {
+            "ModName": "ModLib",
+            "ModURL": "https://3rdartymodmanger.com/GameName/mods/ModLib",
+        }
+    ]
+}
+```

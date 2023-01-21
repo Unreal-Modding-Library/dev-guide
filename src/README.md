@@ -21,3 +21,4 @@ If you are reading this with a bad perception of modding already, I encourage th
 
 # Versions
 - 0.1.0 - 2023-01-20 - Initial release of first draft
+- 0.1.1 - 2023-01-21 - Markdown pass, rewrote DLL injection section

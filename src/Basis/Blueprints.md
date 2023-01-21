@@ -1,5 +1,5 @@
 # Blueprints
-Blueprint modding is the most accessible form of "advanced" modding, in that modders can create new assets and write code to produce mods that do more complex things. It also happens to be the easiest technique to directly support, which is discussed in the "Adding mod support to your game" section. 
+Blueprint modding is the most accessible form of "advanced" modding, in that modders can create new assets and write code to produce mods that do more complex things. It also happens to be the easiest technique to directly support, which is discussed in the [Mod Support](https://unreal-modding-library.github.io/dev-guide/ModSupport) section. 
 
 Blueprint mods can do everything normal UE blueprints can do, which means that at an absolute minimum, there are a lot of possibilities. There is an exception to this however – any modules of the engine that are stripped from shipping builds of games will not work when accessed by blueprint. For example, the cheat manager object is stripped by default (for obvious reasons), so any calls to the cheat manager will not work.
 
@@ -14,21 +14,21 @@ To make the fake reference, you guessed it, modders can make the asset in the sa
 
 With this concept now in mind, faking references can go much further. Modders can dummy properties, functions, delegates, components, and events inside of the dummied asset, which they can then access from their mod blueprints. The following two images show a widget that has had a few properties and events reconstructed so that they can be referenced in a mod blueprint.
 
-![Reconstructed Widgets](../Images/RecontructedWidget.png)
+[![Reconstructed Widgets](../Images/RecontructedWidget.png)](https://github.com/Unreal-Modding-Library/dev-guide/blob/17d62210695e540807bac0633460f636067a9a32/src/Images/RecontructedWidget.png)
 
 *Reconstructed properties inside of a widget*
 
-![Calling Widget Reference](../Images/CallingWidgetReference.png)
+[![Calling Widget Reference](../Images/CallingWidgetReference.png)](https://github.com/Unreal-Modding-Library/dev-guide/blob/17d62210695e540807bac0633460f636067a9a32/src/Images/CallingWidgetReference.png)
 
 *Calling these properties by reference of this asset*
 
 But still, this concept can be pushed even further. Can you dummy the blueprint exposed C++ headers that the game has? **Absolutely.** Every single function exposed with `UFUNCTION`, every property exposed with `UPROPERTY`, enum with `UENUM`, struct with `USTRUCT` and class with `UCLASS`, can be dummied in the project and accessed from blueprint. 
 
-![Reconstructed Header Code](../Images/UHTExampleCode.png)
+[![Reconstructed Header Code](../Images/UHTExampleCode.png)](https://github.com/Unreal-Modding-Library/dev-guide/blob/17d62210695e540807bac0633460f636067a9a32/src/Images/UHTExampleCode.png)
 
 *Some header code reconstructed for a custom User Widget class*
 
-Remember when I said that C++ classes cannot be loaded into the game using pak files, but it is not **that big of a deal**? This is why. If you want modders to be able to access as much C++ in your game as possible, expose it all to blueprint! Of course, there is a minor performance impact, and compiling the game takes longer since there is more work for the Unreal Header Tool. So, there is some weighing up to do with code that you care about performance overhead for. 
+Remember when I said that C++ classes cannot be loaded into the game using pak files, but it is not **_that_ big of a deal**? This is why. If you want modders to be able to access as much C++ in your game as possible, expose it all to blueprint! Of course, there is a minor performance impact, and compiling the game takes longer since there is more work for the Unreal Header Tool. So, there is some weighing up to do with code that you care about performance overhead for. 
 
 Not only are your own C++ headers able to be dummied, but so are any plugins that your game uses. So, depending on which plugin options you have enabled, blueprint mods will be able to use any exposed plugin code. While it does not change any functionality, modders could choose to download the plugin’s source, if readily available, and insert it into their projects. Depending on the plugin, and what they are trying to do, they could then test any blueprint code using the plugin, in-editor, saving them from having to cook, package and test in-game. 
 
@@ -41,8 +41,8 @@ Let’s say that a `UFUNCTION` in the game ‘X’ has no `BlueprintCallable` fl
 
 What is set in X’s actual project | What modders can do in their recreated project
 ----------------------------------|--------------------------------------------
-![X's Header](../Images/NormalHeader.png) | ![Modder's Header](../Images/RecreatedHeader.png)
-![X's Reference](../Images/NormalReference.png) | ![Modder's Reference](../Images/RecreatedReference.png)
+[![X's Header](../Images/NormalHeader.png)](https://github.com/Unreal-Modding-Library/dev-guide/blob/17d62210695e540807bac0633460f636067a9a32/src/Images/NormalHeader.png) | [![Modder's Header](../Images/RecreatedHeader.png)](https://github.com/Unreal-Modding-Library/dev-guide/blob/17d62210695e540807bac0633460f636067a9a32/src/Images/RecreatedHeader.png)
+[![X's Reference](../Images/NormalReference.png)](https://github.com/Unreal-Modding-Library/dev-guide/blob/17d62210695e540807bac0633460f636067a9a32/src/Images/NormalReference.png) | [![Modder's Reference](../Images/RecreatedReference.png)](https://github.com/Unreal-Modding-Library/dev-guide/blob/17d62210695e540807bac0633460f636067a9a32/src/Images/RecreatedReference.png)
 
 As a reminder, if the game has no `UFUNCTION()` macro above something (i.e, it is not reflected), then the modders will not be able to use it at all; this goes the same for any other reflection macros.
 
@@ -57,7 +57,9 @@ You have almost certainly heard of a mod loader. There is usually one for any co
 
 In Unreal Engine, the methods used can vary, depending on each game, their engine versions, engine modifications, etc. Here is a high-level overview of the most common methods, in order of difficulty:
 - Completely replace an asset that is always loaded and does not do anything important, e.g., a credits widget in the escape menu
+
 - Using a "game generic" [mod loader](https://github.com/RussellJerome/UnrealModLoader) that hooks into a common UE function using DLL injection and loads blueprint actors
+
 - Edit an asset (using an asset editor) that is always loaded, e.g., a HUD widget or a map, to add "code" that loads a blueprint actor that has all the mod loading code inside of it
 
 Once any blueprint or widget has been loaded with custom code in, the mod loader can then go about loading any other mods that maybe are within a certain folder in the asset content, using normal UE [asset registry](https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/ProgrammingWithCPP/Assets/Registry/) functions. 
