@@ -23,7 +23,7 @@ A solid way to implement a system like this is to provide a collection of interf
 
 Here’s an example of a shared mod settings window that modders created for the game Deep Rock Galactic:
 
-[![DRG Mod Hub](../Images/DRGModHub.png)](https://github.com/Unreal-Modding-Library/dev-guide/blob/17d62210695e540807bac0633460f636067a9a32/src/Images/DRGModHub.png)
+[![DRG Mod Hub](../Images/DRGModHub.png)](https://github.com/Unreal-Modding-Library/dev-guide/blob/239c7099066a3009f3b7e926e69cfdffb89e21f9/src/Images/DRGModHub.png)
 
 *In-game menu for mods*
 
@@ -31,4 +31,4 @@ Here’s an example of a shared mod settings window that modders created for the
 
 *An example mod using the mod hub's interfaces*
 
-I’ve ported this to be game-generic, which means that any modding community can take the source code and edit it slightly to work with whatever mod loading method they are using. You can find the link to its source [here](https://github.com/AstroColony-Modding/Mod-Hub), if you wish to see how exactly it works.
+I’ve ported this to be game-generic, which means that any modding community can take the source code and edit it slightly to work with whatever mod loading method they are using. You can find the link to its source [here](https://github.com/Unreal-Modding-Library/mod-hub), if you wish to see how exactly it works.
